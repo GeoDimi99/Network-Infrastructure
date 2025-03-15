@@ -1,0 +1,25 @@
+# Startup services
+/etc/init.d/networking restart
+
+# Configuration ip hostname (file hosts)
+echo "150.0.0.250 s2" >> /etc/hosts
+
+# Configuration SSH key permissions
+chown root:root /root/.ssh
+chmod 700 /root/.ssh
+chown root:root /root/.ssh/known_hosts
+chmod 600 /root/.ssh/known_hosts
+chown root:root /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
+chown root:root /root/.ssh/id_rsa.pub
+chmod 600 /root/.ssh/id_rsa.pub
+
+# Configuration for Kathara Containers for allow VPN connection
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
+
+# Configure VPN permission
+chmod 0600 /root/passphrase.txt
+chmod 0600 /root/client_1.key
+

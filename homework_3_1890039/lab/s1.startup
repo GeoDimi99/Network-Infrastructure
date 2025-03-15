@@ -1,0 +1,11 @@
+# Startup services
+/etc/init.d/networking restart
+
+# Configuration for Kathara Containers for allow VPN connection
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
+
+# Configure VPN permissions
+chmod 0600 /root/vpn_server.key
+chmod 0600 /root/passphrase.txt

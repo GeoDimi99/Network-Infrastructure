@@ -1,0 +1,11 @@
+# Starting network service
+/etc/init.d/networking restart
+
+# Starting dhcp service
+/etc/init.d/isc-dhcp-server start
+
+# Routing rules
+ip route add 151.100.192.0/22 via 10.0.0.7  
+ip route add 151.100.197.0/24 via 10.0.0.9 
+ip route add default via 10.0.0.0
+

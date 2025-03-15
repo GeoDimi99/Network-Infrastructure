@@ -1,0 +1,6 @@
+# Startup services
+systemctl restart networking
+systemctl start frr
+
+# Routing rules
+ip route add default via 200.0.0.9

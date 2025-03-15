@@ -1,0 +1,6 @@
+# Starting network service
+/etc/init.d/networking restart
+
+# Configure Server 1
+ip addr add 151.100.197.254/24 dev eth0
+ip route add default via 151.100.197.1

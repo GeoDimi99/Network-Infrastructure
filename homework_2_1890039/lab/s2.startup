@@ -1,0 +1,21 @@
+/etc/init.d/networking restart
+/etc/init.d/ssh restart 
+
+useradd myuser2 -m
+echo -e 'password\npassword\n' | passwd myuser2
+
+cp -r /root/.ssh /home/myuser2/ 
+chown myuser2:myuser2 /home/myuser2/.ssh
+chmod 700 /home/myuser2/.ssh
+chown myuser2:myuser2 /home/myuser2/.ssh/authorized_keys
+chmod 600 /home/myuser2/.ssh/authorized_keys
+
+# Configuration for Kathara Containers for allow VPN connection
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 0666 /dev/net/tun
+
+# Start OpenVPN
+chmod 0600 /root/myserver.key
+chmod 0600 /root/passphrase.txt
+openvpn --config /root/server.conf --askpass /root/passphrase.txt

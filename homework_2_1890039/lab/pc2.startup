@@ -1,0 +1,11 @@
+/etc/init.d/networking restart
+
+# Configuration for Kathara Containers for allow VPN connection
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
+
+# Start OpenVPN
+chmod 0600 /root/passphrase.txt
+chmod 0600 /root/pc2.key
+openvpn --config /root/client.conf --askpass /root/passphrase.txt &

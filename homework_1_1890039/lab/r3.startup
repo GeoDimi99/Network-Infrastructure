@@ -1,0 +1,8 @@
+# Starting network service
+/etc/init.d/networking restart
+
+# Routing rules
+ip route add 151.100.192.0/22 via 10.0.0.11 
+ip route add 151.100.196.0/24 via 10.0.0.8  
+ip route add default via 10.0.0.2 
+

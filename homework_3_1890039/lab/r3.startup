@@ -1,0 +1,6 @@
+# Startup services
+/etc/init.d/networking restart
+
+# Routing rules
+ip route add 100.0.0.0/31 via 100.0.0.2 dev eth0
+ip route add default via 100.0.0.7

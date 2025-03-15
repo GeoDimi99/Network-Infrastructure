@@ -1,0 +1,22 @@
+/etc/init.d/networking restart
+echo "200.0.1.5 s1" >> /etc/hosts
+echo "200.0.2.1 s2" >> /etc/hosts
+
+chown root:root /root/.ssh
+chmod 700 /root/.ssh
+chown root:root /root/.ssh/known_hosts
+chmod 600 /root/.ssh/known_hosts
+chown root:root /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
+chown root:root /root/.ssh/id_rsa.pub
+chmod 600 /root/.ssh/id_rsa.pub
+
+# Configuration for Kathara Containers for allow VPN connection
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
+
+# Start OpenVPN
+chmod 0600 /root/passphrase.txt
+chmod 0600 /root/pc1.key
+openvpn --config /root/client.conf --askpass /root/passphrase.txt &
