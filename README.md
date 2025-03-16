@@ -1,5 +1,10 @@
 # Network Infrastructure
 
-## Info
+### Repository Information
 
-This repository contain some network configuration, in particular there are  the homeworks of network infrastructure of 2023-2024 (that are homework_1 and homework_2) and the homework of 2024-2025 (that is homework_3). The requirements of each homework is inside respectively folder. 
+This repository contains various network configuration files, including assignments related to network infrastructure. Specifically, it includes the following:
+
+- **Homework 1 and Homework 2**: Assignments from the 2023-2024 academic year.
+- **Homework 3**: Assignment from the 2024-2025 academic year.
+
+The requirements for each homework assignment can be found within their respective folders.
